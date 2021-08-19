@@ -12,7 +12,7 @@ export const config: ConnectionOptions = {
   database: process.env.POSTGRES_DB,
   synchronize: false,
   logging: false,
-  entities: ["src/**/*.entity.[ts,js]"],
+  entities: ["src/**/*.entity.[t,j]s"],
   // migrations: ["src/typeorm/migrations/**/*.ts"],
   // subscribers: ["src/typeorm/subscriber/**/*.ts"],
   // cli: {
