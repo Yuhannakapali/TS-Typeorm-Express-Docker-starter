@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "its a hospital management backend",
   "main": "index.js",
+  "Author": "yuhanna kapali <yuhannakapali@gmail.com>",
   "scripts": {
     "build": "tsc ",
     "start": "node dist/index.js",
