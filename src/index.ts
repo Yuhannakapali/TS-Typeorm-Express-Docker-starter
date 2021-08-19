@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+require("dotenv").config()
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
@@ -24,9 +26,9 @@ app.use(morgan("combined"));
 app.get("/ping", (_req: any, res: any) => {
   res.send("pong");
 });
-
-app.listen(3000, () => {
-  console.log("Serer started");
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`server started 'http://localhost:${port}'`);
 });
 
 (async () => {

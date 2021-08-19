@@ -13,12 +13,12 @@ export const config: ConnectionOptions = {
   synchronize: false,
   logging: false,
   entities: ["src/**/*.entity.[ts,js]"],
-  migrations: ["src/typeorm/migrations/**/*.ts"],
-  subscribers: ["src/typeorm/subscriber/**/*.ts"],
-  cli: {
-    entitiesDir: "src/typeorm/entities",
-    migrationsDir: "src/typeorm/migrations",
-    subscribersDir: "src/typeorm/subscriber",
-  },
+  // migrations: ["src/typeorm/migrations/**/*.ts"],
+  // subscribers: ["src/typeorm/subscriber/**/*.ts"],
+  // cli: {
+  //   entitiesDir: "src/typeorm/entities",
+  //   migrationsDir: "src/typeorm/migrations",
+  //   subscribersDir: "src/typeorm/subscriber",
+  // },
   // namingStrategy: new SnakeNamingStrategy(),
 };
