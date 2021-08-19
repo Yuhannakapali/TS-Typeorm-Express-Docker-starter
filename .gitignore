@@ -6,3 +6,6 @@
 
 # removing build 
 /dist
+
+# removing the env from repository
+.env
