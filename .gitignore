@@ -1,8 +1,8 @@
 # ignoring node module
-node_modules
+/node_modules
 
 # removing logs
-log
+/log
 
 # removing build 
-dist
+/dist
