@@ -6,7 +6,7 @@ import helmet from "helmet";
 import morgan from "morgan";
 import path from "path";
 import fs from "fs";
-import { dbCreateConnection } from "./typeorm";
+import { dbCreateConnection } from "./database";
 
 const app = express();
 app.use(cors());
