@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-require("dotenv").config()
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
@@ -7,6 +5,7 @@ import morgan from "morgan";
 import path from "path";
 import fs from "fs";
 import { dbCreateConnection } from "./database";
+import { getConfig } from "./config"
 
 const app = express();
 app.use(cors());
@@ -18,15 +17,21 @@ try {
   });
   app.use(morgan("combined", { stream: accessLogStream }));
 } catch (err) {
-  console.log(err);
+  console.log("error writing the logs", err);
 }
 
 app.use(morgan("combined"));
-
+app.get("/", (_req, res) => {
+  res.json({ status: "ok", message: "ready to rock and roll." })
+})
 app.get("/ping", (_req: any, res: any) => {
   res.send("pong");
 });
-const port = process.env.PORT || 3000;
+
+
+// app.use();
+
+const port = getConfig("port");
 app.listen(port, () => {
   console.log(`server started 'http://localhost:${port}'`);
 });

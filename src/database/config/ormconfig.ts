@@ -1,18 +1,19 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-require("dotenv").config()
+
+import { getConfig } from "../../config";
 import { ConnectionOptions } from "typeorm";
 // import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
-
 export const config: ConnectionOptions = {
   type: "postgres",
-  host: process.env.PG_HOST,
-  port: Number(process.env.PG_PORT),
-  username: process.env.POSTGRES_USER,
-  password: process.env.POSTGRES_PASSWORD,
-  database: process.env.POSTGRES_DB,
+  host: getConfig("database.host"),
+  port: getConfig("database.port"),
+  username: getConfig("database.user"),
+  password: getConfig("database.password"),
+  database: getConfig("database.database"),
   synchronize: false,
   logging: false,
-  entities: ["src/**/*.entity.[t,j]s"],
+  entities: getConfig("orm.entities")
+  // entities: ["src/**/*.entity.[t,j]s"],
   // migrations: ["src/typeorm/migrations/**/*.ts"],
   // subscribers: ["src/typeorm/subscriber/**/*.ts"],
   // cli: {
@@ -22,3 +23,5 @@ export const config: ConnectionOptions = {
   // },
   // namingStrategy: new SnakeNamingStrategy(),
 };
+
+
