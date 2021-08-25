@@ -5,7 +5,6 @@
 
 > its a hospital management backend
 
-### 🏠 [Homepage](/)
 
 ## Install
 
