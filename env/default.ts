@@ -22,5 +22,6 @@ export const config = {
     templates: {
         path: resolve(__dirname, "..", "views"),
     },
-    port: process.env.PORT || 3000
+    port: process.env.PORT || 3000,
+
 };
