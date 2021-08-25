@@ -25,14 +25,14 @@ npm run start
 npm run test
 ```
 
-## Author
+## Authors
 
 👤 **yuhanna**
 
 * Website: yuhannakapali.com.np
-* Twitter: [@yuhanna\_kapali](https://twitter.com/yuhanna\_kapali)
+* Twitter: [@yuhanna\_kapali](https://twitter.com/yuhanna_kapali)
 * Github: [@yuhanna](https://github.com/yuhanna)
-* LinkedIn: [@yuhanna](https://linkedin.com/in/yuhanna)
+* LinkedIn: [@yuhanna](https://www.linkedin.com/in/yuhanna-kapali-36334911a/)
 
 ## Show your support
 
