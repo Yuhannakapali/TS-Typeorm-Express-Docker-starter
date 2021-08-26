@@ -9,3 +9,6 @@
 
 # removing the env from repository
 .env
+
+# removing db-data from the repository which will be created if used docker.
+/db-data
