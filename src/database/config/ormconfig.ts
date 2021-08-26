@@ -6,7 +6,7 @@ import { ConnectionOptions } from "typeorm";
 export const config: ConnectionOptions = {
   type: "postgres",
   host: getConfig("database.host"),
-  port: getConfig("database.port"),
+  port: Number(getConfig("database.port")),
   username: getConfig("database.user"),
   password: getConfig("database.password"),
   database: getConfig("database.database"),

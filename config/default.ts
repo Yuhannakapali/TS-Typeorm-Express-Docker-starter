@@ -23,5 +23,9 @@ export const config = {
         path: resolve(__dirname, "..", "views"),
     },
     port: process.env.PORT || 3000,
+    logs: {
+        env: process.env.NODE_ENV === "production" ? "combined" : "dev",
+    }
+
 
 };

@@ -2,9 +2,10 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
-import path from "path";
-import fs from "fs";
+// import path from "path";
+// import fs from "fs";
 import { dbCreateConnection } from "./database";
+import { logStream, logger } from "../config/winston.config"
 import { getConfig } from "./config"
 
 const app = express();
@@ -12,12 +13,12 @@ app.use(cors());
 app.use(helmet());
 
 try {
-  const accessLogStream = fs.createWriteStream(path.join(__dirname, "../log/access.log"), {
-    flags: "a",
-  });
-  app.use(morgan("combined", { stream: accessLogStream }));
+  // const accessLogStream = fs.createWriteStream(path.join(__dirname, "../log/access.log"), {
+  //   flags: "a",
+  // });
+  app.use(morgan(getConfig("logs.env"), { stream: logStream }));
 } catch (err) {
-  console.log("error writing the logs", err);
+  logger.error(`${err.message}`);
 }
 
 app.use(morgan("combined"));

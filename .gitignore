@@ -2,7 +2,7 @@
 /node_modules
 
 # removing logs
-/log
+/logs
 
 # removing build 
 /dist
