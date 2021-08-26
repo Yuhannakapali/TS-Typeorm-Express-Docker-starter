@@ -25,6 +25,9 @@ export const config = {
     port: process.env.PORT || 3000,
     logs: {
         env: process.env.NODE_ENV === "production" ? "combined" : "dev",
+    },
+    api: {
+        version: "v1",
     }
 
 
