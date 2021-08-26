@@ -2,8 +2,6 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
-// import path from "path";
-// import fs from "fs";
 import { dbCreateConnection } from "./database";
 import { logStream, logger } from "../config/winston.config"
 import { getConfig } from "./config"
@@ -13,9 +11,6 @@ app.use(cors());
 app.use(helmet());
 
 try {
-  // const accessLogStream = fs.createWriteStream(path.join(__dirname, "../log/access.log"), {
-  //   flags: "a",
-  // });
   app.use(morgan(getConfig("logs.env"), { stream: logStream }));
 } catch (err) {
   logger.error(`${err.message}`);
@@ -29,12 +24,22 @@ app.get("/ping", (_req: any, res: any) => {
   res.send("pong");
 });
 
-
-// app.use();
+app.use("/*", (_req, res) => {
+  logger.error("No route found");
+  return res.status(404).json({
+    error: "no route found",
+  });
+});
+app.use((err: any, _req: any, res: any) => {
+  logger.error(`${err.message}`);
+  return res.status(err.status || 500).json({
+    error: err.message,
+  });
+});
 
 const port = getConfig("port");
 app.listen(port, () => {
-  console.log(`server started 'http://localhost:${port}'`);
+  logger.info(`server started 'http://localhost:${port}'`);
 });
 
 (async () => {
