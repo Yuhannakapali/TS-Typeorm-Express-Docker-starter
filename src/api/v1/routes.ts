@@ -4,7 +4,7 @@ import { authRouter } from "../../auth/router";
 
 export const v1Router = express.Router();
 
-v1Router.get("/", (_req, res) => {
+v1Router.get("/ping", (_req: express.Request, res: express.Response) => {
     res.json({ status: "ok" })
 })
 

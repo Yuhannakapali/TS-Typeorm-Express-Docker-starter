@@ -6,7 +6,10 @@ import { dbCreateConnection } from "./database";
 import { logStream, logger } from "../config/winston.config"
 import { getConfig } from "./config"
 import { apiRouter } from "./api/routes";
-// import { v1Router } from "./api/v1/routes";
+
+// Todo  use compression for performance boost. 
+// ! https://expressjs.com/en/advanced/best-practice-performance.html
+
 
 const app = express();
 app.use(cors());

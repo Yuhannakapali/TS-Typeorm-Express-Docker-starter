@@ -13,8 +13,8 @@ export const config = {
         database: process.env.DATABASE
     },
     orm: {
-        entities: ["*/src/**/*.entity.{t,j}s"],
-        synchronize: false,
+        entities: ["/src/**/*.entity.{t,j}s"],
+        synchronize: true,
     },
     public: {
         path: resolve(__dirname, "../", "public"),

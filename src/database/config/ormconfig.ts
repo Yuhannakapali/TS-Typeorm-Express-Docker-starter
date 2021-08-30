@@ -2,6 +2,8 @@
 
 import { getConfig } from "../../config";
 import { ConnectionOptions } from "typeorm";
+// import { User } from "../../user/user.entity";
+// import Role from "../../user/user.role.entity";
 // import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 export const config: ConnectionOptions = {
   type: "postgres",
@@ -10,10 +12,11 @@ export const config: ConnectionOptions = {
   username: getConfig("database.user"),
   password: getConfig("database.password"),
   database: getConfig("database.database"),
-  synchronize: false,
+  synchronize: true,
   logging: false,
-  entities: getConfig("orm.entities")
-  // entities: ["src/**/*.entity.[t,j]s"],
+  // Todo  entities using regex.
+  // entities: [User, Role]
+  entities: ["src/*/**/*.entity.[t,j]s"],
   // migrations: ["src/typeorm/migrations/**/*.ts"],
   // subscribers: ["src/typeorm/subscriber/**/*.ts"],
   // cli: {
