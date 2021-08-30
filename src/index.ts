@@ -4,7 +4,7 @@ import helmet from "helmet";
 import morgan from "morgan";
 import { dbCreateConnection } from "./database";
 import { logStream, logger } from "../config/winston.config"
-import { getConfig } from "./config"
+import { getConfig } from "./app/config"
 import { apiRouter } from "./api/routes";
 
 // Todo  use compression for performance boost. 

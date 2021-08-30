@@ -1,6 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 
-import { getConfig } from "../../config";
+import { getConfig } from "../../app/config";
 import { ConnectionOptions } from "typeorm";
 // import { User } from "../../user/user.entity";
 // import Role from "../../user/user.role.entity";

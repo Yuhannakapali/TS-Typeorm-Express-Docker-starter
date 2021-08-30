@@ -1,5 +1,5 @@
 import { get } from "lodash";
-import { config } from "../../config/default"
+import { config } from "../../../config/default"
 
 /**
  * @param  {string} key
