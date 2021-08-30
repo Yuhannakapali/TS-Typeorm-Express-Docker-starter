@@ -4,7 +4,7 @@ import { authRouter } from "../../auth/router";
 
 export const v1Router = express.Router();
 
-v1Router.use("/", (_req, res) => {
+v1Router.get("/", (_req, res) => {
     res.json({ status: "ok" })
 })
 

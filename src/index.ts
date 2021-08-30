@@ -5,7 +5,8 @@ import morgan from "morgan";
 import { dbCreateConnection } from "./database";
 import { logStream, logger } from "../config/winston.config"
 import { getConfig } from "./config"
-import { v1Router } from "./api/v1/routes";
+import { apiRouter } from "./api/routes";
+// import { v1Router } from "./api/v1/routes";
 
 const app = express();
 app.use(cors());
@@ -26,7 +27,7 @@ app.get("/ping", (_req: express.Request, res: express.Response) => {
 });
 
 
-app.use(`/api/${getConfig("api.version")}`, v1Router);
+app.use(`/api`, apiRouter);
 
 app.use("/*", (_req, res) => {
   logger.error("No route found");
