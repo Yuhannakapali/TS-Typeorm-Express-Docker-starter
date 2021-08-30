@@ -19,7 +19,8 @@
         "no-console": "warn",
         "quotes": [
         "error",
-        "double"
+        "double",
+        "single"
         ]
         
 

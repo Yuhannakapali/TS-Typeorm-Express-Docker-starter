@@ -21,7 +21,7 @@ app.use(morgan("combined"));
 app.get("/", (_req, res) => {
   res.json({ status: "ok", message: "ready to rock and roll." })
 })
-app.get("/ping", (_req: any, res: any) => {
+app.get("/ping", (_req: express.Request, res: express.Response) => {
   res.json("pong");
 });
 

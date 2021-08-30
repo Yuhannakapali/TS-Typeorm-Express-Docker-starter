@@ -5,7 +5,7 @@ import { resolve } from "path";
 
 export const config = {
     database: {
-        url: "postgres://app:secret@arriana-postgresql/locations",
+        url: "postgres://app:secret@arriana-postgresql/indoor",
         host: process.env.PG_HOST,
         port: process.env.PG_PORT,
         user: process.env.POSTGRES_USER,
