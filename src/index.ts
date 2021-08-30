@@ -14,6 +14,8 @@ import { apiRouter } from "./api/routes";
 const app = express();
 app.use(cors());
 app.use(helmet());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json())
 
 try {
   app.use(morgan(getConfig("logs.env"), { stream: logStream }));
