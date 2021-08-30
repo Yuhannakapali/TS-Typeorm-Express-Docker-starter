@@ -13,9 +13,10 @@ export const config: ConnectionOptions = {
   password: getConfig("database.password"),
   database: getConfig("database.database"),
   synchronize: true,
-  logging: false,
-  // Todo  entities using regex.
-  // entities: [User, Role]
+  // logging: false,
+  logging: true,
+  logger: "file",
+
   entities: ["src/*/**/*.entity.[t,j]s"],
   // migrations: ["src/typeorm/migrations/**/*.ts"],
   // subscribers: ["src/typeorm/subscriber/**/*.ts"],

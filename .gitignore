@@ -12,3 +12,6 @@
 
 # removing db-data from the repository which will be created if used docker.
 /db-data
+
+#removing orm-logs 
+ormlogs.log
