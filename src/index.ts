@@ -41,6 +41,7 @@ app.use("/*", (_req, res) => {
   });
 });
 app.use((err: any, _req: any, res: any) => {
+  console.log("🚀 ~ file: index.ts ~ line 44 ~ app.use ~ err", err)
   logger.error(`${err.message}`);
   return res.status(err.status || 500).json({
     error: err.message,

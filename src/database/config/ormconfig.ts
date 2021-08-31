@@ -17,7 +17,7 @@ export const config: ConnectionOptions = {
   logging: true,
   logger: "file",
 
-  entities: ["src/*/**/*.entity.[t,j]s"],
+  entities: ["*/src/*/**/*.entity.{ts,js}"],
   // migrations: ["src/typeorm/migrations/**/*.ts"],
   // subscribers: ["src/typeorm/subscriber/**/*.ts"],
   // cli: {

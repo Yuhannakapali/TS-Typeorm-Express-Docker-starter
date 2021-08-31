@@ -1,10 +1,10 @@
-import express from "express";
+import { Router } from "express";
 import { authRouter } from "../../auth/router";
 
 
-export const v1Router = express.Router();
+export const v1Router = Router();
 
-v1Router.get("/ping", (_req: express.Request, res: express.Response) => {
+v1Router.get("/ping", (_req, res) => {
     res.json({ status: "ok" })
 })
 

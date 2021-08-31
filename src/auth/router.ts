@@ -1,7 +1,6 @@
-import express from 'express';
-// import {}
+import { Router } from 'express';
 
-export const authRouter = express.Router();
+export const authRouter = Router();
 
 authRouter.get("/ping", (_req, res) => {
     res.send("test");
