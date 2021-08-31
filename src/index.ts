@@ -7,6 +7,10 @@ import { logStream, logger } from "../config/winston.config"
 import { getConfig } from "./app/config"
 import { apiRouter } from "./api/routes";
 
+// import './utils/response/customSuccess';
+import { errorHandler } from "./app/middleware";
+
+
 // Todo  use compression for performance boost. 
 // ! https://expressjs.com/en/advanced/best-practice-performance.html
 
@@ -23,7 +27,7 @@ try {
   logger.error(`${err.message}`);
 }
 
-app.use(morgan("combined"));
+// app.use(morgan("combined"));
 app.get("/", (_req, res) => {
   res.json({ status: "ok", message: "ready to rock and roll." })
 })
@@ -40,17 +44,11 @@ app.use("/*", (_req, res) => {
     error: "no route found",
   });
 });
-app.use((err: any, _req: any, res: any) => {
-  console.log("🚀 ~ file: index.ts ~ line 44 ~ app.use ~ err", err)
-  logger.error(`${err.message}`);
-  return res.status(err.status || 500).json({
-    error: err.message,
-  });
-});
+app.use(errorHandler);
 
 const port = getConfig("port");
 app.listen(port, () => {
-  logger.info(`server started 'http://localhost:${port}'`);
+  logger.info(`server started at 'http://localhost:${port}'`);
 });
 
 (async () => {

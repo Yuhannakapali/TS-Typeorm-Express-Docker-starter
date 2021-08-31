@@ -1,3 +1,4 @@
+import bcrypt from 'bcryptjs';
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 
 @Entity()
@@ -20,7 +21,9 @@ export class User {
     @Column()
     password: string;
 
-    @Column()
+    @Column({
+        nullable: true
+    })
     taxCode: string;
 
     @Column({
@@ -42,7 +45,9 @@ export class User {
     @Column({ nullable: true })
     apple: number;
 
-    @Column()
+    @Column({
+        nullable: true,
+    })
     roleId: number;
 
 
@@ -54,5 +59,21 @@ export class User {
 
     @Column({ type: 'timestamptz' })
     updatedAt: Date;
+
+    hashPassword() {
+        this.password = bcrypt.hashSync(this.password, 8);
+    }
+
+    checkIfPasswordMatch(unencryptedPassword: string) {
+        return bcrypt.compareSync(unencryptedPassword, this.password);
+    }
+
+    setCreated() {
+        this.createdAt = new Date();
+    }
+
+    setUpdated() {
+        this.updatedAt = new Date();
+    }
 
 }
